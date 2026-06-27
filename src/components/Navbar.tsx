@@ -57,7 +57,7 @@ export default function Navbar() {
           {/* Logo */}
           <button onClick={() => scrollTo('#home')} className="flex flex-col items-start cursor-pointer">
             <span className="gradient-gold text-2xl font-black tracking-widest leading-none">PCK</span>
-            <span className="text-[10px] font-light tracking-[6px] text-[#c9a84c]/60 uppercase">Films</span>
+            <span className="text-[10px] font-light tracking-[6px] text-[#c9a84c]/60 uppercase">Studios</span>
           </button>
 
           {/* Desktop nav */}

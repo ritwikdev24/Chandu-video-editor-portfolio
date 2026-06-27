@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Netlify
+.netlify/
+
+# Generated
+.content-collections/
+
+# Build
+dist/
+
+# Environment
+.env
+.env.local
+
+# macOS
+.DS_Store

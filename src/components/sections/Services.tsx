@@ -5,14 +5,10 @@ const services = [
   { title: 'Video Editing', desc: 'Professional editing with seamless cuts and narrative flow that captivates audiences from start to finish.', icon: Film },
   { title: 'News Package Editing', desc: 'Fast-paced broadcast news editing delivering accurate, compelling stories on strict deadlines.', icon: Tv },
   { title: 'Storytelling', desc: 'Compelling narratives crafted with precision to emotionally connect with your target audience.', icon: BookOpen },
-  { title: 'Script Visualization', desc: 'Transforming written scripts into powerful visual masterpieces with creative precision.', icon: Eye },
-  { title: 'Sound Mixing', desc: 'Crystal clear audio with professional mixing, ensuring every sound element elevates the story.', icon: Music },
   { title: 'Color Grading', desc: 'Cinematic color science delivering stunning, mood-enhancing visuals with professional LUT work.', icon: Palette },
   { title: 'Motion Graphics', desc: 'Dynamic animated graphics that enhance storytelling and add professional polish to productions.', icon: Zap },
   { title: 'Broadcast Production', desc: 'End-to-end broadcast quality production meeting the highest industry standards and requirements.', icon: Radio },
   { title: 'Social Media Content', desc: 'Platform-optimized content designed for maximum engagement across all social media channels.', icon: Share2 },
-  { title: 'YouTube Editing', desc: 'Engaging YouTube content with strong retention hooks, clean cuts and subscriber-growing edits.', icon: Youtube },
-  { title: 'Special Stories & Packages', desc: 'Unique documentary and feature packages that tell extraordinary stories with depth and impact.', icon: Star },
 ]
 
 export default function Services() {

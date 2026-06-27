@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Clock, Building2, Video, Star } from 'lucide-react'
 
+const aboutImage = '/images/about-profile.jpg'
+
 const stats = [
   { value: 9, suffix: '+', label: 'Years Experience', icon: Clock },
   { value: 8, suffix: '+', label: 'Media Organizations', icon: Building2 },
@@ -16,15 +18,23 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
 
   useEffect(() => {
     if (!inView) return
+
     const duration = 2000
     const steps = 60
     const increment = stat.value / steps
     let current = 0
+
     const timer = setInterval(() => {
       current += increment
-      if (current >= stat.value) { setCount(stat.value); clearInterval(timer) }
-      else setCount(Math.floor(current))
+
+      if (current >= stat.value) {
+        setCount(stat.value)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(current))
+      }
     }, duration / steps)
+
     return () => clearInterval(timer)
   }, [inView, stat.value])
 
@@ -42,10 +52,15 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
       <div className="w-12 h-12 mx-auto mb-4 rounded-full border border-[#c9a84c]/20 flex items-center justify-center group-hover:border-[#c9a84c]/50 transition-all duration-300">
         <Icon size={20} className="text-[#c9a84c]" />
       </div>
+
       <div className="gradient-gold text-4xl font-black mb-2">
-        {count.toLocaleString()}{stat.suffix}
+        {count.toLocaleString()}
+        {stat.suffix}
       </div>
-      <p className="text-white/50 text-xs font-semibold tracking-widest uppercase">{stat.label}</p>
+
+      <p className="text-white/50 text-xs font-semibold tracking-widest uppercase">
+        {stat.label}
+      </p>
     </motion.div>
   )
 }
@@ -63,6 +78,7 @@ export default function About() {
           >
             About Me
           </motion.span>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,11 +88,11 @@ export default function About() {
           >
             The Artist Behind The Frame
           </motion.h2>
+
           <div className="gold-divider" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Left: Quote */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -84,25 +100,46 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              <div className="text-[#c9a84c] text-8xl font-serif leading-none opacity-20 absolute -top-6 -left-4">"</div>
-              <blockquote className="relative z-10 text-white/70 text-lg leading-relaxed font-light" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', lineHeight: '1.8' }}>
-                Dynamic and results-oriented professional with over 9 years of experience in video production and editing. Skilled in editing techniques, storytelling, script visualization, motion graphics, sound mixing and post-production workflows.
+              <div className="text-[#c9a84c] text-8xl font-serif leading-none opacity-20 absolute -top-6 -left-4">
+                "
+              </div>
+
+              <blockquote
+                className="relative z-10 text-white/70 text-lg leading-relaxed font-light"
+                style={{
+                  fontFamily: 'Cormorant Garamond, serif',
+                  fontSize: '20px',
+                  lineHeight: '1.8',
+                }}
+              >
+                Dynamic and results-oriented professional with over 9 years of
+                experience in video production and editing. Skilled in editing
+                techniques, storytelling, script visualization, motion graphics,
+                sound mixing and post-production workflows.
               </blockquote>
-              <div className="text-[#c9a84c] text-8xl font-serif leading-none opacity-20 text-right -mb-8 -mr-4">"</div>
+
+              <div className="text-[#c9a84c] text-8xl font-serif leading-none opacity-20 text-right -mb-8 -mr-4">
+                "
+              </div>
             </div>
 
             <div className="mt-12">
               <p className="text-white/50 text-sm leading-relaxed font-light mb-6">
-                Proven ability to deliver high-quality stories and visual content while maintaining strict deadlines and broadcast standards. A dedicated craftsman who treats every frame as an opportunity to tell a better story.
+                Proven ability to deliver high-quality stories and visual content
+                while maintaining strict deadlines and broadcast standards. A
+                dedicated craftsman who treats every frame as an opportunity to
+                tell a better story.
               </p>
+
               <div className="flex items-center gap-4">
                 <div className="gold-divider-left mb-0 w-12" />
-                <span className="text-[#c9a84c] text-xs font-bold tracking-widest uppercase">Senior Video Editor</span>
+                <span className="text-[#c9a84c] text-xs font-bold tracking-widest uppercase">
+                  Senior Video Editor
+                </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Image placeholder with decorative elements */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,16 +147,25 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-[3/4] max-w-sm mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/10 to-transparent rounded-2xl border border-[#c9a84c]/20" />
-              <div className="absolute inset-4 border border-[#c9a84c]/10 rounded-xl" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="gradient-gold text-6xl font-black mb-2">PCK</div>
-                  <div className="text-white/30 text-xs tracking-widest uppercase">Senior Video Editor</div>
+            <div className="aspect-[3/4] max-w-sm mx-auto relative overflow-hidden rounded-2xl border border-[#c9a84c]/20 bg-black">
+              <img
+                src={'profile.jpg'}
+                alt="Purna Chandra Koppisetti"
+                className="w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-4 border border-[#c9a84c]/20 rounded-xl pointer-events-none" />
+
+              <div className="absolute bottom-8 left-0 right-0 text-center">
+                <div className="gradient-gold text-5xl font-black mb-2">
+                  PCK
+                </div>
+                <div className="text-white/50 text-xs tracking-widest uppercase">
+                  Senior Video Editor
                 </div>
               </div>
-              {/* Decorative corners */}
+
               <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-[#c9a84c]/60 rounded-tl" />
               <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-[#c9a84c]/60 rounded-tr" />
               <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-[#c9a84c]/60 rounded-bl" />
@@ -128,9 +174,10 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Stats grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((s, i) => <StatCard key={s.label} stat={s} index={i} />)}
+          {stats.map((s, i) => (
+            <StatCard key={s.label} stat={s} index={i} />
+          ))}
         </div>
       </div>
     </section>

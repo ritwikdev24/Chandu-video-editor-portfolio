@@ -11,7 +11,7 @@ export default function LoadingScreen({ onComplete }: Props) {
     const interval = setInterval(() => {
       setProgress((p) => {
         if (p >= 100) { clearInterval(interval); return 100 }
-        return p + 2
+        return p + 4
       })
     }, 40)
     return () => clearInterval(interval)
@@ -65,7 +65,7 @@ export default function LoadingScreen({ onComplete }: Props) {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-[#c9a84c]/60 text-xs tracking-[8px] uppercase mb-16 font-light"
             >
-              Films
+              Studios
             </motion.p>
 
             {/* Progress bar */}

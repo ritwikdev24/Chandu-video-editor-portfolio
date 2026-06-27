@@ -7,24 +7,38 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+  e.preventDefault()
+  setStatus('loading')
+
+  try {
+    const response = await fetch('https://formspree.io/f/mqevqoqw', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      }),
+    })
+
+    if (response.ok) {
+      setStatus('success')
+      setForm({
+        name: '',
+        email: '',
+        message: '',
       })
-      if (res.ok) {
-        setStatus('success')
-        setForm({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
-    } catch {
+    } else {
       setStatus('error')
     }
+  } catch (error) {
+    console.error(error)
+    setStatus('error')
   }
+}
 
   return (
     <section id="contact" className="section-padding bg-[#0d0d0d]">
@@ -86,14 +100,14 @@ export default function Contact() {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/919550301842?text=Hi Purna, I'd like to discuss a project with you."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold inline-flex"
-            >
-              <MessageCircle size={16} />
-              Chat on WhatsApp
-            </a>
+  href="https://wa.me/919550301842?text=Hi Purna, I'd like to discuss a project with you."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#25D366] to-[#1EBE5D] px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.45)]"
+>
+  <MessageCircle size={22} />
+  Chat on WhatsApp
+</a>
           </motion.div>
 
           {/* Right: Form */}
