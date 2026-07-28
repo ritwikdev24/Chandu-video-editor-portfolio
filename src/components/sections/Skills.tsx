@@ -6,8 +6,6 @@ import {
   BookOpen,
   Music,
   Palette,
-  Sparkles,
-  MonitorPlay,
   ClipboardList,
   Monitor,
   type LucideIcon,
@@ -15,70 +13,61 @@ import {
 
 const skills: {
   name: string
-  percentage: number
   icon: LucideIcon
   color: string
   glow: string
 }[] = [
   {
     name: 'Adobe Premiere Pro',
-    percentage: 95,
     icon: Clapperboard,
     color: '#a78bfa',
     glow: 'rgba(167, 139, 250, 0.35)',
   },
   {
     name: 'Adobe Photoshop',
-    percentage: 85,
     icon: Image,
     color: '#38bdf8',
     glow: 'rgba(56, 189, 248, 0.35)',
   },
   {
     name: 'Video Editing',
-    percentage: 95,
     icon: Scissors,
     color: '#facc15',
     glow: 'rgba(250, 204, 21, 0.35)',
   },
   {
     name: 'Storytelling',
-    percentage: 95,
     icon: BookOpen,
     color: '#fb923c',
     glow: 'rgba(251, 146, 60, 0.35)',
   },
   {
     name: 'Sound Mixing',
-    percentage: 90,
     icon: Music,
     color: '#22c55e',
     glow: 'rgba(34, 197, 94, 0.35)',
   },
   {
     name: 'Color Correction',
-    percentage: 90,
     icon: Palette,
     color: '#ec4899',
     glow: 'rgba(236, 72, 153, 0.35)',
   },
   {
     name: 'Workflow Management',
-    percentage: 95,
     icon: ClipboardList,
     color: '#84cc16',
     glow: 'rgba(132, 204, 22, 0.35)',
   },
   {
     name: 'Windows OS',
-    percentage: 90,
     icon: Monitor,
     color: '#60a5fa',
     glow: 'rgba(96, 165, 250, 0.35)',
   },
 ]
 
-function SkillCard({ skill }: { skill: typeof skills[0] }) {
+function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
   const Icon = skill.icon
 
   return (
@@ -106,9 +95,6 @@ function SkillCard({ skill }: { skill: typeof skills[0] }) {
           <h3 className="text-sm font-semibold text-white/85">
             {skill.name}
           </h3>
-          <p className="mt-1 text-xs font-medium text-white/35">
-            {skill.percentage}% proficiency
-          </p>
         </div>
       </div>
     </div>
@@ -148,7 +134,8 @@ export default function Skills() {
             transition={{ delay: 0.2 }}
             className="text-white/40 text-sm max-w-xl mx-auto font-light"
           >
-            Years of mastery across industry-leading tools and techniques, delivering broadcast-quality results.
+            Years of mastery across industry-leading tools and techniques,
+            delivering broadcast-quality results.
           </motion.p>
         </div>
 

@@ -11,7 +11,7 @@ export default function LoadingScreen({ onComplete }: Props) {
     const interval = setInterval(() => {
       setProgress((p) => {
         if (p >= 100) { clearInterval(interval); return 100 }
-        return p + 4
+        return p + 6
       })
     }, 40)
     return () => clearInterval(interval)

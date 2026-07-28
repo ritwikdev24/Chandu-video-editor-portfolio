@@ -16,36 +16,42 @@ const portfolioItems = [
     id: 1,
     title: 'News Package 1',
     category: 'News Packages',
-    youtubeUrl: 'https://www.youtube.com/embed/Zans0b9JaNw',
+    image: '/1st.jpg',
+    youtubeUrl: 'https://www.youtube.com/embed/Igdd5aNq1Yo',
   },
   {
     id: 2,
     title: 'News Package 2',
     category: 'News Packages',
-    youtubeUrl: 'https://www.youtube.com/embed/nK3S-8BXZNI',
+    image: '/2nd.jpg',
+    youtubeUrl: 'https://www.youtube.com/embed/C5YjgFJoxmA',
   },
   {
     id: 3,
     title: 'Special Story',
     category: 'Special Stories',
+    image: '/3rd.jpg',
     youtubeUrl: 'https://www.youtube.com/embed/uQMhYbjDUc0',
   },
   {
     id: 4,
     title: 'Social Media Video',
     category: 'Social Media Videos',
+    image: '/4th.jpg',
     youtubeUrl: 'https://www.youtube.com/embed/D9ejaJanLjw',
   },
   {
     id: 5,
     title: 'Promotional Video',
     category: 'Promotional Videos',
+    image: '/5th.jpg',
     youtubeUrl: 'https://www.youtube.com/embed/RjdpctPl-tg',
   },
   {
     id: 6,
     title: 'Showreel',
     category: 'Showreels',
+    image: '/6th.jpg',
     youtubeUrl: 'https://www.youtube.com/embed/_VPubJkExM8',
   },
 ]
@@ -116,44 +122,77 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="glass-card overflow-hidden group cursor-pointer hover:border-[#c9a84c]/30 transition-all duration-300"
+                className="
+                            group
+                            overflow-hidden
+                            rounded-3xl
+                            border border-[#c9a84c]/15
+                            bg-[#111]
+                            hover:border-[#c9a84c]/40
+                            hover:-translate-y-2
+                            hover:shadow-[0_20px_60px_rgba(201,168,76,0.18)]
+                            transition-all
+                            duration-500
+                            "
               >
                 {/* Thumbnail */}
-                <div
-                  className="relative aspect-video bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center overflow-hidden"
-                  onClick={() => setModalItem(item)}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/5 to-transparent" />
+                {/* Thumbnail */}
+<div
+  className="relative aspect-video overflow-hidden cursor-pointer"
+  onClick={() => setModalItem(item)}
+>
+  {/* Background Image */}
+  <img
+  src={item.image}
+  alt={item.title}
+  loading="lazy"
+  draggable={false}
+  className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110 transition-transform duration-700 group-hover:scale-110"
+/>
 
-                  <div className="w-16 h-16 rounded-full border-2 border-[#c9a84c]/40 flex items-center justify-center group-hover:scale-110 group-hover:border-[#c9a84c] group-hover:bg-[#c9a84c]/10 transition-all duration-300">
-                    <Play
-                      size={24}
-                      className="text-[#c9a84c] ml-1"
-                      fill="currentColor"
-                    />
-                  </div>
+<div className="absolute inset-0 border border-[#c9a84c]/15 pointer-events-none" />
 
-                  <div className="absolute top-3 right-3">
-                    <span className="px-3 py-1 bg-[#c9a84c]/20 border border-[#c9a84c]/30 rounded-full text-[#c9a84c] text-[10px] font-bold tracking-widest uppercase">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
+  {/* Dark Overlay */}
+  {/* Dark Overlay */}
+<div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-all duration-300" />
+
+  {/* Bottom Gradient */}
+  {/* Bottom Gradient */}
+<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+  {/* Category Badge */}
+  <div className="absolute top-4 right-4 z-20">
+    <span className="px-4 py-1 rounded-full border border-[#c9a84c]/50 bg-[#1b1710]/70 backdrop-blur-md text-[#c9a84c] text-[10px] font-bold tracking-[2px] uppercase">
+      {item.category}
+    </span>
+  </div>
+
+  {/* Play Button */}
+  <div className="absolute inset-0 flex items-center justify-center z-20">
+    <div className="w-14 h-14 rounded-full border-2 border-[#c9a84c]/70 bg-black/20 backdrop-blur-md flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-[#c9a84c]/20 group-hover:border-[#c9a84c]">
+      <Play
+        size={18}
+        className="text-[#c9a84c] ml-1"
+        fill="currentColor"
+      />
+    </div>
+  </div>
+</div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-white font-bold text-base mb-4 group-hover:text-[#c9a84c] transition-colors">
-                    {item.title}
-                  </h3>
+                <div className="p-6 bg-[#111111]">
+  <h3 className="text-white text-2xl font-bold mb-4 group-hover:text-[#c9a84c] transition-colors duration-300">
+    {item.title}
+  </h3>
 
-                  <button
-                    onClick={() => setModalItem(item)}
-                    className="flex items-center gap-2 text-[#c9a84c] text-xs font-bold tracking-widest uppercase hover:gap-3 transition-all duration-300"
-                  >
-                    <Play size={12} fill="currentColor" />
-                    Watch Video
-                  </button>
-                </div>
+  <button
+    onClick={() => setModalItem(item)}
+    className="inline-flex items-center gap-2 text-[#c9a84c] text-sm font-semibold uppercase tracking-[2px] hover:gap-3 transition-all duration-300"
+  >
+    <Play size={14} fill="currentColor" />
+    Watch Video
+  </button>
+</div>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -199,7 +238,7 @@ export default function Portfolio() {
 
               <div className="aspect-video">
                 <iframe
-                  src={`${modalItem.youtubeUrl}?autoplay=1`}
+                src={`${modalItem.youtubeUrl}?autoplay=1&rel=0&modestbranding=1`}
                   className="w-full h-full"
                   title={modalItem.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
