@@ -111,7 +111,7 @@ export default function Hero() {
         >
           <div className="h-[1px] w-8 bg-[#c9a84c] sm:w-10" />
           <span className="text-[10px] font-bold uppercase tracking-[4px] text-[#c9a84c] sm:text-xs sm:tracking-[6px]">
-            VIDEO EDITOR | MOTION DESIGNER
+            VIDEO EDITOR
           </span>
           <div className="h-[1px] w-8 bg-[#c9a84c] sm:w-10" />
         </motion.div>
@@ -127,7 +127,7 @@ export default function Hero() {
         {...fadeUp(0.3)}
         className="text-[clamp(34px,12vw,86px)] font-black leading-[0.95] text-white"
       >
-        Chandu
+        Purna Chandra
       </motion.h1>
 
       <motion.h1

@@ -63,20 +63,6 @@ const skills: {
     glow: 'rgba(236, 72, 153, 0.35)',
   },
   {
-    name: 'Motion Graphics',
-    percentage: 85,
-    icon: Sparkles,
-    color: '#f97316',
-    glow: 'rgba(249, 115, 22, 0.35)',
-  },
-  {
-    name: 'Post Production',
-    percentage: 95,
-    icon: MonitorPlay,
-    color: '#06b6d4',
-    glow: 'rgba(6, 182, 212, 0.35)',
-  },
-  {
     name: 'Workflow Management',
     percentage: 95,
     icon: ClipboardList,

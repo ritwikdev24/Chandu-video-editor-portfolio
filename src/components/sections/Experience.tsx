@@ -4,13 +4,13 @@ import { Briefcase, Calendar } from 'lucide-react'
 const companies = [
   { year: 'Present', name: 'ITS U TV', role: 'Senior Video Editor', current: true },
   { year: '2016', name: 'Myra Media', role: 'Video Editor', current: false },
-  { year: '2016', name: 'IFrames Media', role: 'Video Editor', current: false },
-  { year: '2016', name: 'NN Media', role: 'Video Editor', current: false },
-  { year: '2016', name: 'HashtagU', role: 'Video Editor', current: false },
-  { year: '2016', name: 'Red TV', role: 'Video Editor', current: false },
-  { year: '2016', name: 'RTV', role: 'Video Editor', current: false },
-  { year: '2016', name: 'Vihari News', role: 'Video Editor', current: false },
-  { year: '2016', name: 'Point Blank TV', role: 'Video Editor', current: false },
+  { year: '2018', name: 'IFrames Media', role: 'Video Editor', current: false },
+  { year: '2019', name: 'NN Media', role: 'Video Editor', current: false },
+  { year: '2020', name: 'HashtagU', role: 'Video Editor', current: false },
+  { year: '2021', name: 'Red TV', role: 'Video Editor', current: false },
+  { year: '2023', name: 'RTV', role: 'Video Editor', current: false },
+  { year: '2024', name: 'Vihari News', role: 'Video Editor', current: false },
+  { year: '2024', name: 'Point Blank TV', role: 'Video Editor', current: false },
 ]
 
 const sortedCompanies = [...companies].sort((a, b) => {
