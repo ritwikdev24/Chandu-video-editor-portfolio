@@ -52,12 +52,12 @@ const portfolioItems = [
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All')
-  const [modalItem, setModalItem] = useState<typeof portfolioItems[0] | null>(null)
+  const [modalItem, setModalItem] = useState<(typeof portfolioItems)[0] | null>(null)
 
   const filtered =
     activeCategory === 'All'
       ? portfolioItems
-      : portfolioItems.filter((i) => i.category === activeCategory)
+      : portfolioItems.filter((item) => item.category === activeCategory)
 
   return (
     <section id="portfolio" className="section-padding bg-[#0d0d0d]">
@@ -142,13 +142,9 @@ export default function Portfolio() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-white font-bold text-base mb-2 group-hover:text-[#c9a84c] transition-colors">
+                  <h3 className="text-white font-bold text-base mb-4 group-hover:text-[#c9a84c] transition-colors">
                     {item.title}
                   </h3>
-
-                  <p className="text-white/40 text-xs leading-relaxed font-light mb-4">
-                    {item.description}
-                  </p>
 
                   <button
                     onClick={() => setModalItem(item)}
@@ -187,6 +183,7 @@ export default function Portfolio() {
                   <h3 className="font-bold text-white">
                     {modalItem.title}
                   </h3>
+
                   <span className="text-[#c9a84c] text-sm">
                     {modalItem.category}
                   </span>
@@ -208,12 +205,6 @@ export default function Portfolio() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-              </div>
-
-              <div className="p-5">
-                <p className="text-white/50 text-sm">
-                  {modalItem}
-                </p>
               </div>
             </motion.div>
           </motion.div>
